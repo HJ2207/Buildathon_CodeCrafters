@@ -5,7 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url('../img/astronaut-2.jpeg') no-repeat center center fixed;
+    background: url('astronaut-2.jpeg') no-repeat center center fixed;
     background-size: cover;
     font-family: Arial, sans-serif;
     color: white;
@@ -36,13 +36,20 @@ body {
 .emulet-box {
     background-color: white;
     margin-left: 5px;
-    padding: 0 10px;
-    border-radius: 5px;
-}
+    padding: 5px;
+    border-radius: 15px; 
+    transform: skew(-20deg); 
+    display: inline-block; }
+
 
 .emulet {
     color: black; /* Text color inside the white box */
+    transform: skew(-250deg); /* Apply the inverse skew to keep the text straight */
+    padding: 10px; /* Additional padding to ensure the content fits well */
+    font-size: smaller;
+    font-weight: bolder;
 }
+
 
 .login-form {
     background: rgba(0, 0, 0, 0.7);
@@ -62,7 +69,8 @@ body {
 }
 
 .login-form input[type="submit"] {
-    background-color: #ffa500;
+    
+    background-color: #e6b800;
     color: black;
     border: none;
     padding: 10px;
@@ -72,7 +80,23 @@ body {
 }
 
 .login-form input[type="submit"]:hover {
+    background-color: #ffa500;
+    font-weight: bolder;
+}
+
+.login-form input[type="button"] {
     background-color: #e6b800;
+    color: black;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.login-form input[type="button"]:hover {
+    background-color: #ffa500;
+    font-weight: bolder;
 }
 
 .powered-by {
@@ -95,4 +119,13 @@ body {
     object-fit: cover;
     /* margin-top: 10px; */
     margin-bottom: 30px;
+}
+.error-message {
+    display: none; /* Hidden by default */
+    color: red;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    text-align: center;
+    font-weight: bolder;
 }
