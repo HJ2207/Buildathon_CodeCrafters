@@ -30,14 +30,14 @@
 // main.js
 const { app, BrowserWindow, ipcMain } = require('electron');
 const bcrypt = require('bcrypt');
-const { Pool } = require('pg');
+const pg = require('pg');
 const dotenv = require('dotenv');
 
 // Load environment variables from .env file
 dotenv.config();
 
 // Create a new PostgreSQL client
-const db = new Pool({
+const db = new pg.Client({
   user: process.env.PG_USER,
   host: process.env.PG_HOST,
   database: process.env.PG_DATABASE,
@@ -58,17 +58,22 @@ function createWindow() {
     },
   });
 
-  // Load the index.html file
-  win.loadURL(`file://${__dirname}/index.html`);
+  win.loadFile('index.html');
+};
 
-  // Handle window close event
-  win.on('closed', () => {
-    win = null;
-  });
-}
+app.whenReady().then(createWindow);
 
-// Create the window when the app is ready
-app.on('ready', createWindow);
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});
+
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow();
+  }
+});
 
 // Handle login form submission
 ipcMain.on('login', (event, username, password) => {
@@ -90,7 +95,7 @@ ipcMain.on('login', (event, username, password) => {
             if (result) {
               event.reply('login-success', 'Logged in successfully!');
               // Load the pages.html file
-              win.loadFile('pages.html');
+              win.loadURL(`file://${__dirname}/pages.html`);
             } else {
               event.reply('login-error', 'Incorrect password');
             }

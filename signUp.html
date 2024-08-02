@@ -17,9 +17,9 @@
             <form id="loginForm">
                 <input type="text" id="username" name="username" placeholder="Set Username" required>
                 <input type="password" id="password" name="password" placeholder="Set Password" required>
-                <input type="password" id="password" name="password" placeholder="Confirm Password" required><br><br><br>
+                <input type="password" id="confirmPassword" name="password" placeholder="Confirm Password" required><br><br><br>
                 <div class="error-message" id="errorMessage">Passwords do not match!</div><br>
-                <input type="submit" value="Create Account" onclick="window.location.href='progress1.html'">&nbsp&nbsp&nbsp&nbsp
+                <input type="submit" value="Create Account" onclick="window.location.href='pages.html'">&nbsp&nbsp&nbsp&nbsp
                 
         </div>
     <div class="footer-image">
@@ -39,7 +39,6 @@
             if (password !== confirmPassword) {
                 document.getElementById('errorMessage').style.display = 'block';
             } else {
-                document.getElementById('errorMessage').style.display = 'none';
                 ipcRenderer.send('signup', username, password);
             }
     });

@@ -32,11 +32,11 @@
         <strong><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=404,fit=crop,q=95/AGB32Jx3yetEQB4M/wallpapers-7-AoPGzq981wh4PLnV.png" alt="Footer Image"></strong>
     </div>
     </div>
-    <script src="script.js"></script>
+  
        <!-- index.html -->
        <script>
         const { ipcRenderer } = require('electron');
-        document.getElementById('login-form').addEventListener('submit', (e) => {
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
         e.preventDefault();
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
@@ -48,6 +48,10 @@
             errorMessage.textContent = message;
             errorMessage.style.display = 'block';
         });
+        ipcRenderer.on('login-success', (event, message) => {
+            console.log(message);
+            window.location.href = 'pages.html';
+          });
     </script>
 </body>
 </html>
