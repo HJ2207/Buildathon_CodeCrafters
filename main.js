@@ -85,11 +85,13 @@ ipcMain.on('login', (event, username, password) => {
     } else {
       if (result.rows.length > 0) {
         const user = result.rows[0];
-        const storedHashedPassword = user.password;
+        const storedHashedPassword = user.passwrd;
+        console.log(`Stored hash: ${storedHashedPassword}`);
+        console.log(`Entered password: ${password}`);
         // Verify the password
         bcrypt.compare(password, storedHashedPassword, (err, result) => {
           if (err) {
-            console.error("Error comparing passwrds:", err);
+            console.error("Error comparing passwords:", err);
             event.reply('login-error', 'Internal server error');
           } else {
             if (result) {
@@ -107,7 +109,6 @@ ipcMain.on('login', (event, username, password) => {
     }
   });
 });
-
 // Handle signup form submission
 ipcMain.on('signup', (event, username, password) => {
   // Check if the user already exists
