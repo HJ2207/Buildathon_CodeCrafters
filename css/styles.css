@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('../img/astronaut-2.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.preprod {
+    color: white;
+}
+
+.emulet-box {
+    background-color: white;
+    margin-left: 5px;
+    padding: 0 10px;
+    border-radius: 5px;
+}
+
+.emulet {
+    color: black; /* Text color inside the white box */
+}
+
+.login-form {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.login-form input[type="submit"] {
+    background-color: #ffa500;
+    color: black;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.login-form input[type="submit"]:hover {
+    background-color: #e6b800;
+}
+
+.powered-by {
+    margin-top: 20px;
+    font-size: 1em;
+}
+
+.footer-image {
+    position:fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.footer-image img {
+    width: 20%;
+    max-height: 80px; 
+    object-fit: cover;
+    /* margin-top: 10px; */
+    margin-bottom: 30px;
+}

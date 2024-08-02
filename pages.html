@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Dashboard</title>
+    <link rel="stylesheet" href="./css/styles2.css">
+    
+</head>
+<body>
+    <div class="container">
+        
+        <div class="navbar">
+            <button onclick="showSection('data-ingestion')">Data Ingestion</button>
+            <button onclick="showSection('data-transformation')">Data Transformation</button>
+            <button onclick="showSection('auto-train')">Auto Train ML models</button>
+            <button onclick="showSection('freeze-learnings')">Freeze the Learnings</button>
+            
+            <button id="log-out">Logout</button>
+        </div>
+       
+        <div class="content">
+            <div class="content-box">
+            <div id="data-ingestion" class="section">
+                <label for="path">Path of the file</label>&nbsp&nbsp
+                <input type="text" id="path" name="path" ><br><br>
+                <label for="filename">Name of the file </label>
+                <input type="text" id="filename" name="filename" placeholder="with extension">&nbsp&nbsp
+                <button onclick="ingestData()">Ingest</button><br><br>
+               
+                <p>Data Dimensions</p>
+                <button onclick="showDataDimensions()">Run</button>&nbsp&nbsp
+            
+                <div id="num-rows" class="displays" >Number of rows</div>&nbsp&nbsp
+                <div id="num-columns" class="displays" >Number of columns</div>
+            </div>
+            <div id="data-transformation" class="section">
+                
+                <div class="content" id="data-transformation-content">
+                    <div class="box">
+                        <label for="remove-features">Remove features</label>&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <input type="text" id="remove-features" placeholder="Enter features to remove">
+                        <button onclick="showConfirmation('remove-features-confirmation')">Run</button><br><br>
+                        <div class="confirmation-message" id="remove-features-confirmation" style="display: none;">
+                            Confirmation message
+                        </div>
+                    </div>
+                    <div >
+                        <label for="convert-numbers">Convert to numbers</label>
+                        <input type="text" id="convert-numbers" placeholder="Enter features to convert">
+                        <button onclick="showConfirmation('convert-numbers-confirmation')">Run</button><br><br>
+                        <div class="confirmation-message" id="convert-numbers-confirmation" style="display: none;">
+                            Confirmation message
+                        </div>
+                    </div>
+                    <p>Data Dimensions</p>
+                    <button onclick="showDataDimensions()">Run</button>&nbsp&nbsp
+                
+                    <div id="num-rows" class="displays" >Number of rows</div>&nbsp&nbsp
+                    <div id="num-columns" class="displays" >Number of columns</div>
+                </div>
+                
+              
+            </div>
+
+            <!-- Auto train -->
+
+            <div id="auto-train" class="section">
+                <label >Train test split</label>&nbsp&nbsp&nbsp
+                <button onclick="trainTestSplit()">Run</button>&nbsp&nbsp&nbsp
+                <input type="number" id="traindata" name="traindata" placeholder="% of training data">&nbsp&nbsp&nbsp
+                <input type="number" id="testdata" name="testdata" placeholder="% of testing data">&nbsp&nbsp&nbsp<br>
+
+                <label >Random Forest</label>&nbsp&nbsp&nbsp
+                <button onclick="trainRandomForest()">Run</button>&nbsp&nbsp
+                <input type="text" id="criterion" name="criterion" placeholder="Criterion">&nbsp&nbsp
+                <input type="text" id="max-depth" name="max-depth" placeholder="Max Depth">&nbsp&nbsp&nbsp
+                <input type="text" id="N-estimators" name="N-estimators" placeholder="N-estimators">&nbsp&nbsp
+                <input type="text" id="rf-performance" name="rf-performance" placeholder="Train-Test Performance">&nbsp&nbsp<br>
+
+
+                <label >SVM</label>&nbsp&nbsp&nbsp
+                <button onclick="trainRandomForest()">Run</button>&nbsp&nbsp&nbsp
+                <input type="text" id="criterion" name="criterion" placeholder="Criterion">&nbsp&nbsp&nbsp
+                <input type="text" id="max-depth" name="max-depth" placeholder="Max Depth">&nbsp&nbsp&nbsp
+                <input type="text" id="N-estimators" name="N-estimators" placeholder="N-estimators">&nbsp&nbsp&nbsp
+                <input type="text" id="svm-performance" name="svm-performance" placeholder="Train-Test Performance">&nbsp&nbsp&nbsp<br>
+
+                <label >ADA Boosting</label>&nbsp&nbsp&nbsp
+                <button onclick="trainRandomForest()">Run</button>&nbsp&nbsp&nbsp
+                <input type="text" id="criterion" name="criterion" placeholder="Criterion">&nbsp&nbsp&nbsp
+                <input type="text" id="max-depth" name="max-depth" placeholder="Max Depth">&nbsp&nbsp&nbsp
+                <input type="text" id="N-estimators" name="N-estimators" placeholder="N-estimators">&nbsp&nbsp&nbsp
+                <input type="text" id="ada-performance" name="ada-performance" placeholder="Train-Test Performance">&nbsp&nbsp&nbsp<br>
+
+                <label >XG-Boost</label>&nbsp&nbsp&nbsp
+                <button onclick="trainRandomForest()">Run</button>&nbsp&nbsp&nbsp
+                <input type="text" id="criterion" name="criterion" placeholder="Criterion">&nbsp&nbsp
+                <input type="text" id="max-depth" name="max-depth" placeholder="Max Depth">&nbsp&nbsp&nbsp
+                <input type="text" id="N-estimators" name="N-estimators" placeholder="N-estimators">&nbsp&nbsp&nbsp
+                <input type="text" id="XG-performance" name="XG-performance" placeholder="Train-Test Performance">&nbsp&nbsp&nbsp<br>
+
+                <label >Decision Tree</label>&nbsp&nbsp&nbsp
+                <button onclick="trainRandomForest()">Run</button>&nbsp&nbsp&nbsp
+                <input type="text" id="criterion" name="criterion" placeholder="Criterion">&nbsp&nbsp&nbsp
+                <input type="text" id="max-depth" name="max-depth" placeholder="Max Depth">&nbsp&nbsp&nbsp
+                <input type="text" id="N-estimators" name="N-estimators" placeholder="N-estimators">&nbsp&nbsp&nbsp
+                <input type="text" id="DT-performance" name="DT-performance" placeholder="Train-Test Performance">&nbsp&nbsp&nbsp<br>
+            </div>
+
+
+
+
+            <div id="freeze-learnings" class="section">
+                <label >Random Forest</label>&nbsp&nbsp&nbsp;
+                <input type="text" id="rf-path" name="rf-path" placeholder="Path to export">
+                <button onclick="exportModel('rf')">Export</button><br><br>
+
+                <label >SVM</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <input type="text" id="svm-path" name="svm-path" placeholder="Path to export">
+                <button onclick="exportModel('svm')">Export</button><br><br>
+
+                <label >ADA Boosting</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <input type="text" id="ada-path" name="ada-path" placeholder="Path to export">
+                <button onclick="exportModel('ada')">Export</button><br><br>
+                
+
+                <label >XG Boost</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <input type="text" id="XG-path"name="XG-path" placeholder="Path to export">
+                <button onclick="exportModel('XG')">Export</button><br><br>
+               
+
+                <label >Decision Tree</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <input type="text" id="DT-path"name="DT-path" placeholder="Path to export">
+                <button onclick="exportModel('DT')">Export</button><br><br>
+                
+
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="script2.js"></script>
+</body>
+</html>
