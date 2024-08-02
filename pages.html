@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ML Dashboard</title>
-    <link rel="stylesheet" href="./css/styles2.css">
+    <title>Prepord corp</title>
+    <link rel="stylesheet" href="css/styles2.css">
     
 </head>
 <body>
@@ -16,7 +16,7 @@
             <button onclick="showSection('auto-train')">Auto Train ML models</button>
             <button onclick="showSection('freeze-learnings')">Freeze the Learnings</button>
             
-            <button id="log-out">Logout</button>
+            <button id="log-out" onclick="window.location.href='signin.html'">Logout</button>
         </div>
        
         <div class="content">
@@ -38,9 +38,10 @@
                 
                 <div class="content" id="data-transformation-content">
                     <div class="box">
+                        
                         <label for="remove-features">Remove features</label>&nbsp&nbsp&nbsp&nbsp&nbsp
                         <input type="text" id="remove-features" placeholder="Enter features to remove">
-                        <button onclick="showConfirmation('remove-features-confirmation')">Run</button><br><br>
+                        <button onclick="showConfirmation('remove-features-confirmation')">Remove features</button><br><br>
                         <div class="confirmation-message" id="remove-features-confirmation" style="display: none;">
                             Confirmation message
                         </div>
@@ -48,11 +49,20 @@
                     <div >
                         <label for="convert-numbers">Convert to numbers</label>
                         <input type="text" id="convert-numbers" placeholder="Enter features to convert">
-                        <button onclick="showConfirmation('convert-numbers-confirmation')">Run</button><br><br>
+                        <button onclick="showConfirmation('convert-numbers-confirmation')">Convert features</button><br><br>
                         <div class="confirmation-message" id="convert-numbers-confirmation" style="display: none;">
                             Confirmation message
                         </div>
                     </div>
+
+                    <label for="convert-numbers">Target Variable</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <input type="text" id="Target-variable" placeholder="Set the target Variable">
+                        <button onclick="showConfirmation('convert-numbers-confirmation')">Set the target variable</button><br><br>
+
+                        <div class="confirmation-message" id="convert-numbers-confirmation" style="display: none;">
+                            Confirmation message
+                        </div>
+                    
                     <p>Data Dimensions</p>
                     <button onclick="showDataDimensions()">Run</button>&nbsp&nbsp
                 
@@ -66,41 +76,41 @@
             <!-- Auto train -->
 
             <div id="auto-train" class="section">
-                <label >Train test split</label>&nbsp&nbsp&nbsp
+                <label >Train test split</label>&nbsp&nbsp&nbsp&nbsp&nbsp
                 <button onclick="trainTestSplit()">Run</button>&nbsp&nbsp&nbsp
                 <input type="number" id="traindata" name="traindata" placeholder="% of training data">&nbsp&nbsp&nbsp
                 <input type="number" id="testdata" name="testdata" placeholder="% of testing data">&nbsp&nbsp&nbsp<br>
 
                 <label >Random Forest</label>&nbsp&nbsp&nbsp
-                <button onclick="trainRandomForest()">Run</button>&nbsp&nbsp
+                <button onclick="trainRandomForest()">Run</button>&nbsp&nbsp&nbsp
                 <input type="text" id="criterion" name="criterion" placeholder="Criterion">&nbsp&nbsp
                 <input type="text" id="max-depth" name="max-depth" placeholder="Max Depth">&nbsp&nbsp&nbsp
                 <input type="text" id="N-estimators" name="N-estimators" placeholder="N-estimators">&nbsp&nbsp
                 <input type="text" id="rf-performance" name="rf-performance" placeholder="Train-Test Performance">&nbsp&nbsp<br>
 
 
-                <label >SVM</label>&nbsp&nbsp&nbsp
+                <label >SVM</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <button onclick="trainRandomForest()">Run</button>&nbsp&nbsp&nbsp
                 <input type="text" id="criterion" name="criterion" placeholder="Criterion">&nbsp&nbsp&nbsp
                 <input type="text" id="max-depth" name="max-depth" placeholder="Max Depth">&nbsp&nbsp&nbsp
                 <input type="text" id="N-estimators" name="N-estimators" placeholder="N-estimators">&nbsp&nbsp&nbsp
                 <input type="text" id="svm-performance" name="svm-performance" placeholder="Train-Test Performance">&nbsp&nbsp&nbsp<br>
 
-                <label >ADA Boosting</label>&nbsp&nbsp&nbsp
+                <label >ADA Boosting</label>&nbsp&nbsp&nbsp&nbsp
                 <button onclick="trainRandomForest()">Run</button>&nbsp&nbsp&nbsp
                 <input type="text" id="criterion" name="criterion" placeholder="Criterion">&nbsp&nbsp&nbsp
                 <input type="text" id="max-depth" name="max-depth" placeholder="Max Depth">&nbsp&nbsp&nbsp
                 <input type="text" id="N-estimators" name="N-estimators" placeholder="N-estimators">&nbsp&nbsp&nbsp
                 <input type="text" id="ada-performance" name="ada-performance" placeholder="Train-Test Performance">&nbsp&nbsp&nbsp<br>
 
-                <label >XG-Boost</label>&nbsp&nbsp&nbsp
+                <label >XG-Boost</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <button onclick="trainRandomForest()">Run</button>&nbsp&nbsp&nbsp
                 <input type="text" id="criterion" name="criterion" placeholder="Criterion">&nbsp&nbsp
                 <input type="text" id="max-depth" name="max-depth" placeholder="Max Depth">&nbsp&nbsp&nbsp
                 <input type="text" id="N-estimators" name="N-estimators" placeholder="N-estimators">&nbsp&nbsp&nbsp
                 <input type="text" id="XG-performance" name="XG-performance" placeholder="Train-Test Performance">&nbsp&nbsp&nbsp<br>
 
-                <label >Decision Tree</label>&nbsp&nbsp&nbsp
+                <label >Decision Tree</label>&nbsp&nbsp&nbsp&nbsp&nbsp
                 <button onclick="trainRandomForest()">Run</button>&nbsp&nbsp&nbsp
                 <input type="text" id="criterion" name="criterion" placeholder="Criterion">&nbsp&nbsp&nbsp
                 <input type="text" id="max-depth" name="max-depth" placeholder="Max Depth">&nbsp&nbsp&nbsp
@@ -112,7 +122,7 @@
 
 
             <div id="freeze-learnings" class="section">
-                <label >Random Forest</label>&nbsp&nbsp&nbsp;
+                <label >Random Forest</label>&nbsp&nbsp&nbsp
                 <input type="text" id="rf-path" name="rf-path" placeholder="Path to export">
                 <button onclick="exportModel('rf')">Export</button><br><br>
 
@@ -137,6 +147,10 @@
 
             </div>
         </div>
+        </div>
+        <div class="footer-image">
+            <span class="powered-by">powered by<br></span>
+            <strong><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=404,fit=crop,q=95/AGB32Jx3yetEQB4M/wallpapers-7-AoPGzq981wh4PLnV.png" alt="Footer Image"></strong>
         </div>
     </div>
     <script src="script2.js"></script>

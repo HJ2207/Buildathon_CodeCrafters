@@ -13,6 +13,6 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     console.log('Password:', password);
 
     // Example: redirecting to another page after login
-    window.location.href = 'pages.html';
+    // window.location.href = 'pages.html';
     
 });

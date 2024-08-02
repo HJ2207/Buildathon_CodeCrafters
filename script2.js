@@ -9,7 +9,7 @@ function showSection(sectionId) {
 function ingestData() {
     const path = document.getElementById('path').value;
     const filename = document.getElementById('filename').value;
-    document.getElementById('confirmation-message').innerText = `File ${filename} from path ${path} ingested successfully.`;
+    document.getElementsByClassName('confirmation-message').innerText = `File ${filename} from path ${path} ingested successfully.`;
 }
 
 function showDataDimensions() {
@@ -64,9 +64,9 @@ function exportModel(modelType) {
     document.getElementById(`${modelType}-confirmation`).innerText = `Model exported to ${path} successfully.`;
 }
 function showConfirmationMessage() {
-    var confirmationMessage = document.getElementById('confirmation-message');
+    var confirmationMessage = document.getElementsByClassName('confirmation-message');
     confirmationMessage.style.display = 'block';
-    setTimeout(function() {
-        confirmationMessage.style.display = 'none';
-    }, 3000); // Hide the message after 3 seconds
+    // setTimeout(function() {
+    //     confirmationMessage.style.display = 'none';
+    // }, 3000); // Hide the message after 3 seconds
 }
