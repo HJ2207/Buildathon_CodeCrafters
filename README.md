@@ -106,14 +106,14 @@ The frontend is built using Electron, HTML, CSS, and JavaScript. It provides an 
 
 ## Contributors
 
-- *Khushboo Mittal: Led the **front-end development* and design of the sleek, elegant, and intuitive *user            interface* along with *documentation*
+- **Khushboo Mittal**: Led the **front-end development** and design of the sleek, elegant, and intuitive **user interface** along with **documentation**
                        [Github Profile](https://github.com/Khushboo-Mittal)
                        
-- *Tanisha Priya: Led the **front-end development* and design of the sleek, elegant, and intuitive *user interface* along with *documentation*
+- **Tanisha Priya**: Led the **front-end development** and design of the sleek, elegant, and intuitive **user interface** along with **documentation**
                        [Github Profile](https://github.com/Tanishapr)
 
-- *Prachi Tavse: Managed the **backend* and *database integration*, ensuring robust functionality.
+- **Prachi Tavse**: Managed the **backend** and **Machine Learning**, ensuring robust functionality.
                        [Github Profile](https://github.com/prachitavse)
 
-- *Harshita Jangde: Managed the **backend* and *database integration*, ensuring robust functionality.
+- **Harshita Jangde**: Managed the **backend** and **database integration**, ensuring robust functionality along with **documentation**.
                        [Github Profile](https://github.com/HJ2207)
