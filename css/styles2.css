@@ -7,6 +7,7 @@ body {
     background: url('../img/astronaut-2.jpeg') no-repeat center center fixed;
 }
 
+
 .app-container {
     display: flex;
     flex-direction: column;
@@ -20,7 +21,7 @@ body {
 }
 
 .nav-btn {
-    background-color: #f0ad4e;
+    background-color: linear-gradient(135deg, #2c3e50 0%, #4c669f 100%);
     border: none;
     padding: 10px 20px;
     margin: 0 5px;
@@ -29,7 +30,7 @@ body {
 }
 
 .nav-btn.active {
-    background-color: #ffa500;
+    background-color:linear-gradient(135deg, #3b5998 0%, #192f6a 100%);
 }
 
 .logout-btn {
@@ -129,7 +130,7 @@ html {
 
 
 .navbar button:hover {
-    background-color: #f18621f3;
+    background-color:#f18621f3 ;
     color: #000;
     font-weight: bolder;
 }
@@ -151,8 +152,8 @@ html {
     width: 200px;
     padding: 10px;
     margin: 10px 10px;
-    background-color: rgba(255, 255, 255, 0); /* Fully transparent background */
-    border: 1px solid rgba(128, 128, 128, 0.7); /* Semi-transparent grey border */
+    background-color: rgba(11, 11, 11, 0.526); /* Fully transparent background */
+    border: 1px solid  rgba(128, 128, 128, 0.7); /* Semi-transparent grey border */
     padding: 10px; /* Adjust padding as needed */
     color: #FFF; /* White text color */
     border-radius: 5px; /* Optional: Rounded corners */
@@ -486,8 +487,4 @@ html {
     max-height: 80px; 
     object-fit: cover;
     margin-bottom: 30px;
-}
-.dimmed-background {
-    background: rgba(0, 0, 0, 0.5);
-    transition: background 0.3s ease;
 }
