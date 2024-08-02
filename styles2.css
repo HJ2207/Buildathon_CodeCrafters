@@ -4,7 +4,7 @@ body {
     color: #fff;
     margin: 0;
     padding: 0;
-    background: url('../img/astronaut-2.jpeg') no-repeat center center fixed;
+    background: url('astronaut-2.jpeg') no-repeat center center fixed;
 }
 
 .app-container {
@@ -86,6 +86,15 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+}
+/* Hide scrollbars in all browsers */
+html, body {
+    overflow: hidden;
+}
+
+/* Optional: Ensure content is clipped */
+html {
+    overflow: -moz-hidden-unscrollable; /* For Firefox */
 }
 
 .navbar {
@@ -245,6 +254,51 @@ body {
 .displays{
     display: inline-block;
 }
+#filename::placeholder{
+    
+    margin: 10px 0;
+    padding: 10px 20px;
+    color: rgba(170, 163, 163, 0.741);
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    justify-items: center;
+    display: inline;
+}
+#remove-features::placeholder{
+    
+    margin: 10px 0;
+    padding: 10px 20px;
+    color: rgba(170, 163, 163, 0.741);
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    justify-items: center;
+    display: inline;
+}
+#convert-numbers::placeholder{
+    
+    margin: 10px 0;
+    padding: 10px 20px;
+    color: rgba(170, 163, 163, 0.741);
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    justify-items: center;
+    display: inline;
+}
+#Target-variable::placeholder{
+    
+    margin: 10px 0;
+    padding: 10px 20px;
+    color: rgba(170, 163, 163, 0.741);
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    justify-items: center;
+    display: inline;
+}
+
 #data-transformation-content{
     justify-content: center;
     display: inline-block;
@@ -407,4 +461,33 @@ body {
     text-align: center;
     justify-items: center;
     display: inline; 
+}
+.section {
+    display: none; 
+}
+.powered-by {
+    margin-top: 20px;
+    font-size: 1em;
+}
+
+.footer-image {
+    position: fixed;
+    bottom: 0;
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    width: 100%;
+    text-align: center; /* Center the text */
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.footer-image img {
+    width: 20%;
+    max-height: 80px; 
+    object-fit: cover;
+    margin-bottom: 30px;
+}
+.dimmed-background {
+    background: rgba(0, 0, 0, 0.5);
+    transition: background 0.3s ease;
 }

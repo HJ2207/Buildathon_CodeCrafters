@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="styles3.css">
 
 </head>
 <body>
@@ -15,16 +15,18 @@
         </div>
         <div class="login-form">
             <form id="loginForm">
-                <input type="text" id="username" name="username" placeholder="Username" required>
-                <input type="password" id="password" name="password" placeholder="Password" required><br>
-                <input type="submit" value="Sign in">
-            </form>
+                <input type="text" id="username" name="username" placeholder="Set Username" required>
+                <input type="password" id="password" name="password" placeholder="Set Password" required>
+                <input type="password" id="password" name="password" placeholder="Confirm Password" required><br><br><br>
+                <div class="error-message" id="errorMessage">Passwords do not match!</div><br>
+                <input type="submit" value="Create Account" onclick="window.location.href='progress1.html'">&nbsp&nbsp&nbsp&nbsp
+                
         </div>
     <div class="footer-image">
         <span class="powered-by">powered by<br></span>
         <strong><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=404,fit=crop,q=95/AGB32Jx3yetEQB4M/wallpapers-7-AoPGzq981wh4PLnV.png" alt="Footer Image"></strong>
     </div>
     </div>
-    <script src="script.js"></script>
+    <script src="script3.js"></script>
 </body>
 </html>
