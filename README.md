@@ -58,9 +58,9 @@ AutoML UI is a desktop application developed using Electron and Visual Studio Co
     npm start
     
 ## Overview
-![Login-page] (./img/loginPage.png)
-![First-Page] (./img/firstpage.png)
-![Third-Page] (./img/thirdPage.png)
+![Login-page] (img/loginPage.png)
+![First-Page] (img/firstpage.png)
+![Third-Page] (img/thirdPage.png)
 ## Frontend Development
 
 The frontend is built using Electron, HTML, CSS, and JavaScript. It provides an interface for users to upload datasets, preprocess data, train models, and export the trained models. Front-end design, noted for its clean and intuitive user interface was achieved through a meticulous approach using only HTML, CSS, and JavaScript. Below, we outline the key components of our front-end development process.
