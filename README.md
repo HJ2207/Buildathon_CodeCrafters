@@ -43,7 +43,7 @@ AutoML UI is a desktop application developed using Electron and Visual Studio Co
 
 1. Clone the repository:
      bash
-    git clone https://github.com/yourusername/automl-ui.git
+    git clone https://github.com/HJ2207/Buildathon_CodeCrafters.git
     cd automl-ui
     
    
