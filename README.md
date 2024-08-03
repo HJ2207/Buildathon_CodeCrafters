@@ -44,13 +44,11 @@ AutoML UI is a desktop application developed using Electron and Visual Studio Co
 1. Clone the repository:
      bash
     git clone https://github.com/HJ2207/Buildathon_CodeCrafters.git
-    cd automl-ui
     
    
 2. Installing the dependencies:
     bash
     npm install
-    pip install -r requirements.txt
     
    
 3. Run the application:
